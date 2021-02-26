@@ -59,7 +59,7 @@ def plague_mode():
 
 class World:
     def __init__(self):
-        """generates the world as an array 1-alive 0-not-alive"""
+        """generates the world as an array"""
         self.nrows = integer('number of rows: ', 0, 0)
         self.ncols = integer('number of cols: ', 0, 0)
         self.games = integer('number of rounds: ', 0, 0)
