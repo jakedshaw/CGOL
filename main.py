@@ -2,7 +2,6 @@ from matplotlib.colors import ListedColormap
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from numba import njit
-import time
 import random
 import numpy as np
 import os
@@ -44,6 +43,7 @@ def integer(message, code, val):
 
 
 def plague_mode():
+    """asks to play plague mode"""
     clear()
     try:
         a = input('plague mode (y/n) ')
@@ -181,11 +181,10 @@ def plot_world():
 
 
 if __name__ == '__main__':
-    start_time = time.time()
     clear()
     world = World()
     if world.mode == 5:
-        world.plague = np.array([170 / 256, 0 / 256, 0 / 256, 1])
+        world.plague = np.array([170/256, 0/256, 0/256, 1])
     c_map = color_map()
     plt.figure()
     plt.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
@@ -194,7 +193,6 @@ if __name__ == '__main__':
         world.grid = update(world.nrows, world.ncols, world.grid, world.buffer, world.mode)
         plot_world()
         s += 1
-    print("--- %s seconds ---" % (time.time() - start_time))
     hm = plt.imshow(world.grid, cmap=c_map)
     plt.draw()
     plt.show()
